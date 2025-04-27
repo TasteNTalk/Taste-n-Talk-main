@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"npm run dev --prefix frontend\" \"npm run dev --prefix backend\"",
     "start": "concurrently \"npm run backend\" \"npm run frontend\"",
-    "frontend": "cd TNT-deploy && npm run dev",  
+    "frontend": "cd frontend && npm run dev",  
     "backend": "cd server && npm start" 
   },
   "author": "Amish Jain",
