@@ -165,7 +165,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className={`bg-[#002140] flex container ${sidebarExpanded ? 'ml-[200px]' : 'ml-[60px]'} -mt-[720px] py-4 px-4 md:px-6 w-fit`}>
+    <div className={`bg-[#022c43] flex container ${sidebarExpanded ? 'ml-[200px]' : 'ml-[60px]'} -mt-[720px] py-4 px-4 md:px-6 w-fit`}>
       {/* Toggle Button */}
       {/* <button 
         onClick={toggleSidebar}
@@ -175,7 +175,7 @@ const HomePage = () => {
       </button> */}
       
       {/* Main Content */}
-      <div className="flex-1 bg-[#002140] text-gray-800">
+      <div className="flex-1 bg-[#022c43] text-gray-800">
         {/* Navigation Menu */}
         <div className="w-full mx-auto mt-5 bg-gradient-to-br from-[#e2e4d6] to-[#c4c2c2] rounded-xl shadow-lg overflow-hidden relative">
           {/* Top Color Stripe */}
@@ -228,7 +228,7 @@ const HomePage = () => {
           <section className="mb-4">
             <div className="relative">
               <button 
-                className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-black bg-opacity-50 text-white border-none cursor-pointer w-10 h-10 rounded-full text-lg flex items-center justify-center hover:bg-black hover:bg-opacity-80 z-10"
+                className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-black bg-opacity-50 text-white border-none cursor-pointer w-10 h-10 rounded-full text-lg flex items-center justify-center hover:bg-black hover:bg-opacity-80"
                 onClick={() => scrollStories(-200)}
               >
                 <ChevronLeft size={24} />
@@ -250,7 +250,7 @@ const HomePage = () => {
                 ))}
               </div>
               <button 
-                className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-black bg-opacity-50 text-white border-none cursor-pointer w-10 h-10 rounded-full text-lg flex items-center justify-center hover:bg-black hover:bg-opacity-80 z-10"
+                className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-black bg-opacity-50 text-white border-none cursor-pointer w-10 h-10 rounded-full text-lg flex items-center justify-center hover:bg-black hover:bg-opacity-80"
                 onClick={() => scrollStories(200)}
               >
                 <ChevronRight size={24} />
@@ -293,7 +293,7 @@ const HomePage = () => {
                 </div>
               </div>
               <button 
-                className="absolute top-1/2 right-2 transform -translate-y-1/2 w-10 h-10 bg-white text-gray-800 border-none rounded-full cursor-pointer flex items-center justify-center text-lg shadow-md hover:bg-gray-200 focus:outline-none z-10"
+                className="absolute top-1/2 right-2 transform -translate-y-1/2 w-10 h-10 bg-white text-gray-800 border-none rounded-full cursor-pointer flex items-center justify-center text-lg shadow-md hover:bg-gray-200 focus:outline-none"
                 onClick={slideNext}
               >
                 <ChevronRight size={24} />
