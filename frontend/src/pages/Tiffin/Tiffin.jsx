@@ -12,7 +12,7 @@ const Tiffin = () => {
   return (
     <>
       <div className="bg-[#002140]">
-        <div className="container ml-[250px] -mt-[720px] py-12 px-4 md:px-6 w-fit ">
+        <div className="container ml-[60px] -mt-[720px] py-12 px-4 md:px-6 w-fit ">
           <div>
             <div>
               <div className="bg-[#002140] min-h-screen font-sans rounded-2xl">

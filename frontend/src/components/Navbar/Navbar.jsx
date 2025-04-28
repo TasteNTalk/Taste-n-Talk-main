@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import "@fontsource/poppins";
 import homeicon from "../../assets/Homeicon.svg";
 import tntlogo from "../../assets/tntLogo.png";
@@ -18,16 +18,106 @@ import tiffinicon from "../../assets/Tiffin.svg";
 
 const Navbar = ({ children }) => {
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
+  const location = useLocation();
+  
+  // Get the current path from location to determine active tab
+  const currentPath = location.pathname;
 
   const toggleSidebar = () => {
     setSidebarExpanded(!sidebarExpanded);
+  };
+
+  // Create a custom NavLink component with active state styling
+  const CustomNavLink = ({ to, icon, label }) => {
+    const isActive = currentPath === to;
+    
+    return (
+      <NavLink
+        to={to}
+        className={`flex items-center gap-3 p-2 rounded-lg transition-all duration-300 group hover:shadow-md relative ${
+          sidebarExpanded ? "" : "justify-center"
+        } ${
+          isActive 
+            ? "bg-white/25 shadow-lg" 
+            : "hover:bg-white/15"
+        }`}
+      >
+        <div className={`w-8 h-8 flex items-center justify-center rounded-full transition-colors duration-300 shadow-inner ${
+          isActive 
+            ? "bg-[#004a8f] scale-110" 
+            : "bg-[#004a8f]/60 group-hover:bg-[#004a8f]"
+        }`}>
+          <img src={icon} alt="" className={`w-5 h-5 ${isActive ? "filter brightness-110" : ""}`} />
+        </div>
+        <span className={`whitespace-nowrap transition-opacity duration-300 ${
+          sidebarExpanded ? "opacity-100" : "opacity-0 absolute"
+        } ${isActive ? "font-bold" : ""}`}>{label}</span>
+        
+        {/* Active indicator */}
+        {isActive && (
+          <>
+            <span className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-4/5 bg-white rounded-l-lg animate-pulse"></span>
+            {sidebarExpanded && (
+              <span className="absolute -bottom-1 left-2 right-2 h-0.5 bg-white/70 rounded-full animate-pulse"></span>
+            )}
+          </>
+        )}
+      </NavLink>
+    );
+  };
+
+  // For header action buttons
+  const ActionButton = ({ icon, tooltip, onClick, isActive = false }) => {
+    return (
+      <div className="relative group">
+        <button 
+          onClick={onClick}
+          className={`text-[24px] rounded-full px-2 bg-transparent border-none cursor-pointer transition-all duration-[0.8s] hover:-translate-y-[3px] ${
+            isActive 
+              ? "shadow-[0_2px_10px_rgba(255,255,255,0.3)] ring-2 ring-white/30" 
+              : "shadow-[0_4px_6px_rgba(0,33,64,0.89)] hover:shadow-lg"
+          }`}
+        >
+          <img 
+            src={icon} 
+            alt="" 
+            width="45px" 
+            className={isActive ? "filter brightness-110" : ""}
+          />
+          {isActive && (
+            <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-white rounded-full animate-pulse"></span>
+          )}
+        </button>
+        <span className="invisible group-hover:visible absolute w-auto bg-[#022c43]/90 text-white text-center rounded-md py-1 px-2.5 z-50 bottom-full left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-[0.8s] whitespace-nowrap text-sm">
+          {tooltip}
+        </span>
+      </div>
+    );
+  };
+
+  // State to track active header buttons/actions 
+  const [activeButtons, setActiveButtons] = useState({
+    cart: false,
+    saved: false,
+    favorites: false,
+    notifications: false,
+    profile: false,
+    map: false
+  });
+
+  // Toggle active state for header buttons
+  const toggleButtonActive = (buttonName) => {
+    setActiveButtons(prev => ({
+      ...Object.fromEntries(Object.keys(prev).map(key => [key, false])), // Reset all to false
+      [buttonName]: !prev[buttonName] // Toggle the clicked button
+    }));
   };
 
   return (
     <div className="bg-[#022c43] min-h-screen font-serif text-[#e2e4d6] m-0 p-0 box-border">
       <header
         style={{ fontFamily: "Poppins, sans-serif" }}
-        className="animate-fadeIn w-full flex items-center justify-between p-3 bg-[#e2e4d6] shadow-lg fixed top-0 left-0 right-0 z-10 h-[87px]">
+        className="animate-fadeIn w-full flex items-center justify-between p-3 bg-[#e2e4d6] shadow-lg fixed top-0 left-0 right-0 z-20 h-[87px]">
         <div className="flex items-center space-x-4">
           <div className="text-2xl font-bold hidden md:flex items-center gap-3 text-[#002140]">
             <img src={tntlogo} alt="" width="70px" className="rounded-full" />
@@ -40,10 +130,18 @@ const Navbar = ({ children }) => {
         {/* Map Button */}
         <div className="relative group">
           <button
-            className="bg-[#022c43] p-2 rounded-full w-[65px] shadow-md cursor-pointer hover:scale-110 transition-transform duration-[0.8s] hover:shadow-lg"
+            className={`bg-[#022c43] p-2 rounded-full w-[65px] cursor-pointer transition-all duration-[0.8s] hover:scale-110 ${
+              activeButtons.map 
+                ? "shadow-[0_0_15px_rgba(255,255,255,0.4)] scale-110" 
+                : "shadow-md hover:shadow-lg"
+            }`}
             title="Map"
+            onClick={() => toggleButtonActive('map')}
           >
             <img src={map} alt="" width="50px" className="border-none" />
+            {activeButtons.map && (
+              <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-white rounded-full animate-pulse"></span>
+            )}
           </button>
           <span className="invisible group-hover:visible absolute w-auto bg-[#022c43]/90 text-white text-center rounded-md py-1 px-2.5 z-50 bottom-full left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-[0.8s] whitespace-nowrap text-sm">
             Find Nearby Locations
@@ -108,54 +206,56 @@ const Navbar = ({ children }) => {
         {/* Action Icons */}
         <div className="flex items-center justify-between w-1/4 md:w-1/4 sm:w-full gap-2">
           {/* Cart Button */}
-          <div className="relative group">
-            <button className="text-[24px] rounded-full shadow-[0_4px_6px_rgba(0,33,64,0.89)] px-2 bg-transparent border-none cursor-pointer transition-transform duration-[0.8s] hover:-translate-y-[3px] hover:shadow-lg">
-              <img src={carticon} alt="" width="45px" />
-            </button>
-            <span className="invisible group-hover:visible absolute w-auto bg-[#022c43]/90 text-white text-center rounded-md py-1 px-2.5 z-50 bottom-full left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-[0.8s] whitespace-nowrap text-sm">
-              Repi
-            </span>
-          </div>
+          <ActionButton 
+            icon={carticon} 
+            tooltip="Repi" 
+            isActive={activeButtons.cart}
+            onClick={() => toggleButtonActive('cart')}
+          />
 
           {/* Bookmark Button */}
-          <div className="relative group">
-            <button className="text-[24px] rounded-full shadow-[0_4px_6px_rgba(0,33,64,0.89)] px-2 bg-transparent border-none cursor-pointer transition-transform duration-[0.8s] hover:-translate-y-[3px] hover:shadow-lg">
-              <img src={savedicon} alt="" width="45px" />
-            </button>
-            <span className="invisible group-hover:visible absolute w-auto bg-[#022c43]/90 text-white text-center rounded-md py-1 px-2.5 z-50 bottom-full left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-[0.8s] whitespace-nowrap text-sm">
-              Saved Items
-            </span>
-          </div>
+          <ActionButton 
+            icon={savedicon} 
+            tooltip="Saved Items" 
+            isActive={activeButtons.saved}
+            onClick={() => toggleButtonActive('saved')}
+          />
 
           {/* Likes Button */}
-          <div className="relative group">
-            <button className="text-[24px] rounded-full shadow-[0_4px_6px_rgba(0,33,64,0.89)] px-3 bg-transparent border-none cursor-pointer transition-transform duration-[0.8s] hover:-translate-y-[3px] hover:shadow-lg">
-              <img src={favrticon} alt="" width="45px" />
-            </button>
-            <span className="invisible group-hover:visible absolute w-auto bg-[#022c43]/90 text-white text-center rounded-md py-1 px-2.5 z-50 bottom-full left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-[0.8s] whitespace-nowrap text-sm">
-              My Favorites
-            </span>
-          </div>
+          <ActionButton 
+            icon={favrticon} 
+            tooltip="My Favorites" 
+            isActive={activeButtons.favorites}
+            onClick={() => toggleButtonActive('favorites')}
+          />
 
           {/* Notifications Button */}
-          <div className="relative group">
-            <button className="text-[24px] rounded-full shadow-[0_4px_6px_rgba(0,33,64,0.89)] px-2 bg-transparent border-none cursor-pointer transition-transform duration-[0.8s] hover:-translate-y-[3px] hover:shadow-lg">
-              <img src={notificationicon} width="45px" alt="" />
-            </button>
-            <span className="invisible group-hover:visible absolute w-auto bg-[#022c43]/90 text-white text-center rounded-md py-1 px-2.5 z-50 bottom-full left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-[0.8s] whitespace-nowrap text-sm">
-              Notifications
-            </span>
-          </div>
+          <ActionButton 
+            icon={notificationicon} 
+            tooltip="Notifications" 
+            isActive={activeButtons.notifications}
+            onClick={() => toggleButtonActive('notifications')}
+          />
 
           {/* User Account Dropdown */}
           <div className="relative inline-block group">
-            <button className="text-[24px] rounded-full shadow-[0_4px_6px_rgba(0,33,64,0.89)] px-2 bg-transparent border-none cursor-pointer transition-transform duration-300 hover:-translate-y-[3px] hover:shadow-lg">
+            <button 
+              className={`text-[24px] rounded-full px-2 bg-transparent border-none cursor-pointer transition-transform duration-300 hover:-translate-y-[3px] ${
+                activeButtons.profile 
+                  ? "shadow-[0_2px_10px_rgba(255,255,255,0.3)] ring-2 ring-white/30" 
+                  : "shadow-[0_4px_6px_rgba(0,33,64,0.89)] hover:shadow-lg"
+              }`}
+              onClick={() => toggleButtonActive('profile')}
+            >
               <img
                 src={profileicon}
                 alt=""
                 width="45px"
-                className="rounded-full"
+                className={`rounded-full ${activeButtons.profile ? "filter brightness-110" : ""}`}
               />
+              {activeButtons.profile && (
+                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-white rounded-full animate-pulse"></span>
+              )}
             </button>
             <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 absolute right-0 mt-2 w-48 bg-white/90 backdrop-blur-md min-w-[160px] shadow-lg z-50 rounded-xl transform translate-y-2 group-hover:translate-y-0 transition-all duration-[0.8s]">
               <div className="p-2 rounded-t-lg bg-[#022c43] text-[#e2e4d6] font-semibold text-center border-b border-gray-200">
@@ -164,37 +264,61 @@ const Navbar = ({ children }) => {
               <NavLink
                 to={"/myprofile"}
                 href="#"
-                className="block px-4 py-2 text-[#002140] font-medium transition-all duration-200 hover:bg-[#022c43]/10 hover:translate-x-1.5"
+                className={({ isActive }) => 
+                  `block px-4 py-2 text-[#002140] font-medium transition-all duration-200 hover:bg-[#022c43]/10 hover:translate-x-1.5 ${
+                    isActive ? "bg-[#022c43]/20 font-bold" : ""
+                  }`
+                }
               >
                 My Profile
               </NavLink>
               <NavLink
                 to="/setting"
-                className="block px-4 py-2 text-[#002140] font-medium transition-all duration-200 hover:bg-[#022c43]/10 hover:translate-x-1.5"
+                className={({ isActive }) => 
+                  `block px-4 py-2 text-[#002140] font-medium transition-all duration-200 hover:bg-[#022c43]/10 hover:translate-x-1.5 ${
+                    isActive ? "bg-[#022c43]/20 font-bold" : ""
+                  }`
+                }
               >
                 Settings
               </NavLink>
               <NavLink
                 to="/feedback"
-                className="block px-4 py-2 text-[#002140] font-medium transition-all duration-200 hover:bg-[#022c43]/10 hover:translate-x-1.5"
+                className={({ isActive }) => 
+                  `block px-4 py-2 text-[#002140] font-medium transition-all duration-200 hover:bg-[#022c43]/10 hover:translate-x-1.5 ${
+                    isActive ? "bg-[#022c43]/20 font-bold" : ""
+                  }`
+                }
               >
                 Feedback
               </NavLink>
               <NavLink
                 to="/help"
-                className="block px-4 py-2 text-[#002140] font-medium transition-all duration-200 hover:bg-[#022c43]/10 hover:translate-x-1.5"
+                className={({ isActive }) => 
+                  `block px-4 py-2 text-[#002140] font-medium transition-all duration-200 hover:bg-[#022c43]/10 hover:translate-x-1.5 ${
+                    isActive ? "bg-[#022c43]/20 font-bold" : ""
+                  }`
+                }
               >
                 Help?
               </NavLink>
               <NavLink
                 to="/report"
-                className="block px-4 py-2 text-[#002140] font-medium transition-all duration-200 hover:bg-[#022c43]/10 hover:translate-x-1.5"
+                className={({ isActive }) => 
+                  `block px-4 py-2 text-[#002140] font-medium transition-all duration-200 hover:bg-[#022c43]/10 hover:translate-x-1.5 ${
+                    isActive ? "bg-[#022c43]/20 font-bold" : ""
+                  }`
+                }
               >
                 Report
               </NavLink>
               <NavLink
                 to="/blocked"
-                className="block px-4 py-2 text-[#002140] font-medium transition-all duration-200 hover:bg-[#022c43]/10 hover:translate-x-1.5"
+                className={({ isActive }) => 
+                  `block px-4 py-2 text-[#002140] font-medium transition-all duration-200 hover:bg-[#022c43]/10 hover:translate-x-1.5 ${
+                    isActive ? "bg-[#022c43]/20 font-bold" : ""
+                  }`
+                }
               >
                 Blocked
               </NavLink>
@@ -240,86 +364,15 @@ const Navbar = ({ children }) => {
         </div>
         
         <nav className="flex flex-col gap-3 pt-16 px-2 text-[16px] font-semibold text-[#e2e4d6] overflow-y-auto max-h-full">
-          {/* Nav Links */}
-          <NavLink
-            to={"/home"}
-            className={`flex items-center gap-3 p-2 rounded-lg hover:bg-white/15 transition-all duration-300 group hover:shadow-md ${sidebarExpanded ? "" : "justify-center"}`}
-          >
-            <div className="w-8 h-8 flex items-center justify-center bg-[#004a8f]/60 rounded-full group-hover:bg-[#004a8f] transition-colors duration-300 shadow-inner">
-              <img src={homeicon} alt="" className="w-5 h-5" />
-            </div>
-            <span className={`whitespace-nowrap transition-opacity duration-300 ${sidebarExpanded ? "opacity-100" : "opacity-0 absolute"}`}>Home</span>
-          </NavLink>
-
-          <NavLink
-            to={"/shopping"}
-            className={`flex items-center gap-3 p-2 rounded-lg hover:bg-white/15 transition-all duration-300 group hover:shadow-md ${sidebarExpanded ? "" : "justify-center"}`}
-          >
-            <div className="w-8 h-8 flex items-center justify-center bg-[#004a8f]/60 rounded-full group-hover:bg-[#004a8f] transition-colors duration-300 shadow-inner">
-              <img src={carticon} alt="" className="w-5 h-5" />
-            </div>
-            <span className={`whitespace-nowrap transition-opacity duration-300 ${sidebarExpanded ? "opacity-100" : "opacity-0 absolute"}`}>Shopping</span>
-          </NavLink>
-
-          <NavLink
-            to={"/courses"}
-            className={`flex items-center gap-3 p-2 rounded-lg hover:bg-white/15 transition-all duration-300 group hover:shadow-md ${sidebarExpanded ? "" : "justify-center"}`}
-          >
-            <div className="w-8 h-8 flex items-center justify-center bg-[#004a8f]/60 rounded-full group-hover:bg-[#004a8f] transition-colors duration-300 shadow-inner">
-              <img src={coursesicon} alt="" className="w-5 h-5" />
-            </div>
-            <span className={`whitespace-nowrap transition-opacity duration-300 ${sidebarExpanded ? "opacity-100" : "opacity-0 absolute"}`}>Courses</span>
-          </NavLink>
-
-          <NavLink
-            to={"/blogs"}
-            className={`flex items-center gap-3 p-2 rounded-lg hover:bg-white/15 transition-all duration-300 group hover:shadow-md ${sidebarExpanded ? "" : "justify-center"}`}
-          >
-            <div className="w-8 h-8 flex items-center justify-center bg-[#004a8f]/60 rounded-full group-hover:bg-[#004a8f] transition-colors duration-300 shadow-inner">
-              <img src={blogicon} alt="" className="w-5 h-5" />
-            </div>
-            <span className={`whitespace-nowrap transition-opacity duration-300 ${sidebarExpanded ? "opacity-100" : "opacity-0 absolute"}`}>Blogs</span>
-          </NavLink>
-
-          <NavLink
-            to={"/inbox"}
-            className={`flex items-center gap-3 p-2 rounded-lg hover:bg-white/15 transition-all duration-300 group hover:shadow-md ${sidebarExpanded ? "" : "justify-center"}`}
-          >
-            <div className="w-8 h-8 flex items-center justify-center bg-[#004a8f]/60 rounded-full group-hover:bg-[#004a8f] transition-colors duration-300 shadow-inner">
-              <img src={inboxicon} alt="" className="w-5 h-5" />
-            </div>
-            <span className={`whitespace-nowrap transition-opacity duration-300 ${sidebarExpanded ? "opacity-100" : "opacity-0 absolute"}`}>Inbox</span>
-          </NavLink>
-
-          <NavLink
-            to={"/community"}
-            className={`flex items-center gap-3 p-2 rounded-lg hover:bg-white/15 transition-all duration-300 group hover:shadow-md ${sidebarExpanded ? "" : "justify-center"}`}
-          >
-            <div className="w-8 h-8 flex items-center justify-center bg-[#004a8f]/60 rounded-full group-hover:bg-[#004a8f] transition-colors duration-300 shadow-inner">
-              <img src={communityicon} alt="" className="w-5 h-5" />
-            </div>
-            <span className={`whitespace-nowrap transition-opacity duration-300 ${sidebarExpanded ? "opacity-100" : "opacity-0 absolute"}`}>Community</span>
-          </NavLink>
-
-          <NavLink
-            to={"/cheffi"}
-            className={`flex items-center gap-3 p-2 rounded-lg hover:bg-white/15 transition-all duration-300 group hover:shadow-md ${sidebarExpanded ? "" : "justify-center"}`}
-          >
-            <div className="w-8 h-8 flex items-center justify-center bg-[#004a8f]/60 rounded-full group-hover:bg-[#004a8f] transition-colors duration-300 shadow-inner">
-              <img src={cheffiicon} alt="" className="w-5 h-5" />
-            </div>
-            <span className={`whitespace-nowrap transition-opacity duration-300 ${sidebarExpanded ? "opacity-100" : "opacity-0 absolute"}`}>Chefii</span>
-          </NavLink>
-
-          <NavLink
-            to={"/tiffin"}
-            className={`flex items-center gap-3 p-2 rounded-lg hover:bg-white/15 transition-all duration-300 group hover:shadow-md ${sidebarExpanded ? "" : "justify-center"}`}
-          >
-            <div className="w-8 h-8 flex items-center justify-center bg-[#004a8f]/60 rounded-full group-hover:bg-[#004a8f] transition-colors duration-300 shadow-inner">
-              <img src={tiffinicon} alt="" className="w-5 h-5" />
-            </div>
-            <span className={`whitespace-nowrap transition-opacity duration-300 ${sidebarExpanded ? "opacity-100" : "opacity-0 absolute"}`}>Tiffin</span>
-          </NavLink>
+          {/* Nav Links - Using custom NavLink component */}
+          <CustomNavLink to={"/home"} icon={homeicon} label="Home" />
+          <CustomNavLink to={"/shopping"} icon={carticon} label="Shopping" />
+          <CustomNavLink to={"/courses"} icon={coursesicon} label="Courses" />
+          <CustomNavLink to={"/blogs"} icon={blogicon} label="Blogs" />
+          <CustomNavLink to={"/inbox"} icon={inboxicon} label="Inbox" />
+          <CustomNavLink to={"/community"} icon={communityicon} label="Community" />
+          <CustomNavLink to={"/cheffi"} icon={cheffiicon} label="Chefii" />
+          <CustomNavLink to={"/tiffin"} icon={tiffinicon} label="Tiffin" />
           
           {/* If expanded, show premium button at bottom */}
           {sidebarExpanded && (

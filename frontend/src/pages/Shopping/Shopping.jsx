@@ -3,7 +3,7 @@ import React from "react";
 const Shopping = () => {
   return (
     <div className="bg-[#002140]">
-      <div className="bg-[#002140] min-h-screen font-serif container ml-[250px] -mt-[720px] py-6 px-4 md:px-6 w-fit ">
+      <div className="bg-[#002140] min-h-screen font-serif container ml-[60px] -mt-[720px] py-6 px-4 md:px-6 w-fit ">
         <div className="container mx-auto px-4 py-8">
           <div className="bg-[#002140] rounded-lg mb-8 overflow-hidden text-white">
             <div className="flex flex-wrap justify-between bg-gradient-to-r from-black/40 via-black/25 to-transparent">
