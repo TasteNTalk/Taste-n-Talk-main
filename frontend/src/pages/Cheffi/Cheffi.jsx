@@ -35,7 +35,7 @@ const Cheffi = () => {
   };
 
   return (
-    <div className="bg-[#002140] min-h-screen">
+    <div className="bg-[#022c43] min-h-screen">
       <div className="flex justify-center items-center container ml-[250px] -mt-[720px] py-12 px-4 md:px-6 w-auto">
         <div className="flex flex-col h-full w-full max-w-6xl">
           {/* Top Features */}

@@ -1,286 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Card with Modal</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f5f5f5;
-            padding: 20px;
-        }
-        
-        .video-card {
-            max-width: 500px;
-            background-color: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        
-        .video-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .thumbnail-container {
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            background-color: #000;
-        }
-        
-        .thumbnail {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            background-color: rgba(255, 0, 0, 0.8);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .play-button::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 0;
-            border-top: 12px solid transparent;
-            border-bottom: 12px solid transparent;
-            border-left: 20px solid white;
-            margin-left: 4px;
-        }
-        
-        .card-content {
-            padding: 15px;
-        }
-        
-        .card-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 8px;
-            color: #333;
-        }
-        
-        .card-description {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 12px;
-        }
-        
-        .card-footer {
-            display: flex;
-            align-items: center;
-            padding: 0 15px 15px;
-            font-size: 13px;
-            color: #777;
-        }
-        
-        .channel {
-            display: flex;
-            align-items: center;
-        }
-        
-        .channel-icon {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            margin-right: 8px;
-        }
-        
-        .views {
-            margin-left: auto;
-        }
-        
-        .badge {
-            display: inline-block;
-            padding: 3px 8px;
-            background-color: #eee;
-            border-radius: 4px;
-            font-size: 12px;
-            margin-right: 8px;
-        }
-        
-        /* Modal styling */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-        
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .modal-content {
-            width: 90%;
-            max-width: 50%; /* Half screen */
-            height: auto;
-            background-color: #000;
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            transform: scale(0.8);
-            transition: transform 0.3s ease;
-        }
-        
-        .modal-overlay.active .modal-content {
-            transform: scale(1);
-        }
-        
-        .close-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 30px;
-            height: 30px;
-            background-color: rgba(0, 0, 0, 0.6);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 10;
-        }
-        
-        .close-button::before,
-        .close-button::after {
-            content: '';
-            position: absolute;
-            width: 15px;
-            height: 2px;
-            background-color: white;
-        }
-        
-        .close-button::before {
-            transform: rotate(45deg);
-        }
-        
-        .close-button::after {
-            transform: rotate(-45deg);
-        }
-        
-        .video-container {
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-        }
-        
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
-</head>
-<body>
-    <div class="video-card" id="videoCard">
-        <div class="thumbnail-container">
-            <img src="/api/placeholder/500/281" alt="Creamy Mushroom with Lemon Coriander Rice" class="thumbnail">
-            <div class="play-button"></div>
-        </div>
-        <div class="card-content">
-            <div class="card-title">Creamy Mushroom with Lemon Coriander Rice</div>
-            <div class="card-description">Creamy Mushroom with Lemon Coriander Rice Prep time: 15-20 minutes</div>
-        </div>
-        <div class="card-footer">
-            <div class="channel">
-                <img src="/api/placeholder/24/24" alt="Your Food Lab" class="channel-icon">
-                <span>Your Food Lab</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings - Taste'n Talk</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-[#002140] font-sans">
+    <div id="feedback" class="bg-white rounded-xl shadow-md overflow-hidden">
+        <div class="px-6 py-4 bg-gradient-to-r from-black/90 via-[#002140]/90 to-[#003a6c] border-b flex justify-between items-center">
+            <h3 class="text-lg font-bold text-white">Feedback</h3>
+            <a
+              href="#feedback"
+              class="block px-4 py-3 rounded-lg text-gray-300 hover:bg-white/10 hover:text-white transition-colors"
+            >
+              <i class="fas fa-comment-alt mr-2"></i>
+            </a>
+          </div>
+          
+      <div class="p-6 space-y-6">
+        <div>
+          <h4 class="font-bold text-gray-700 mb-3">Share Your Thoughts</h4>
+          <p class="text-gray-600 mb-4">
+            We value your opinion and would love to hear your suggestions on how
+            we can improve Taste'n Talk.
+          </p>
+
+          <div class="space-y-4">
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="feedback-type"
+              >
+                Feedback Type
+              </label>
+              <select
+                class="shadow border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="feedback-type"
+              >
+                <option>General Feedback</option>
+                <option>Bug Report</option>
+                <option>Feature Request</option>
+                <option>Content Suggestion</option>
+                <option>Other</option>
+              </select>
             </div>
-            <div class="views">2,280,905 views</div>
+
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="feedback-message"
+              >
+                Your Message
+              </label>
+              <textarea
+                class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="feedback-message"
+                rows="5"
+                placeholder="Share your thoughts here..."
+              ></textarea>
+            </div>
+
+            <div>
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="feedback-satisfaction"
+              >
+                Overall Satisfaction
+              </label>
+              <div class="flex items-center space-x-4">
+                <div class="flex text-2xl text-yellow-400">
+                  <i
+                    class="far fa-star cursor-pointer hover:text-yellow-500 transition-colors"
+                    data-rating="1"
+                  ></i>
+                  <i
+                    class="far fa-star cursor-pointer hover:text-yellow-500 transition-colors"
+                    data-rating="2"
+                  ></i>
+                  <i
+                    class="far fa-star cursor-pointer hover:text-yellow-500 transition-colors"
+                    data-rating="3"
+                  ></i>
+                  <i
+                    class="far fa-star cursor-pointer hover:text-yellow-500 transition-colors"
+                    data-rating="4"
+                  ></i>
+                  <i
+                    class="far fa-star cursor-pointer hover:text-yellow-500 transition-colors"
+                    data-rating="5"
+                  ></i>
+                </div>
+                <span class="text-gray-600" id="rating-text"
+                  >Select a rating</span
+                >
+              </div>
+            </div>
+
+            <div class="flex items-center mt-2">
+              <input
+                id="anonymous-feedback"
+                type="checkbox"
+                class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+              />
+              <label
+                for="anonymous-feedback"
+                class="ml-2 text-sm font-medium text-gray-700"
+                >Submit anonymously</label
+              >
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <button
+              class="bg-[#ff4d4d] hover:bg-[#ff3333] text-white font-medium py-2 px-6 rounded transition-colors"
+            >
+              Submit Feedback
+            </button>
+          </div>
         </div>
-        <div class="badge">Easy</div>
+
+        <div class="border-t pt-6">
+          <h4 class="font-bold text-gray-700 mb-3">Previous Feedback</h4>
+          <div class="space-y-4">
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <div class="flex justify-between items-start">
+                <div>
+                  <p class="font-medium text-gray-800">Feature Request</p>
+                  <p class="text-gray-600 text-sm mb-2">
+                    Submitted on March 27, 2025
+                  </p>
+                </div>
+                <div class="flex text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+              </div>
+              <p class="text-gray-700">
+                Would love to see a dark mode option for the mobile app. It
+                would be easier on the eyes when browsing recipes at night.
+              </p>
+              <div class="mt-2 text-sm">
+                <span
+                  class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
+                >
+                  Under Review
+                </span>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <div class="flex justify-between items-start">
+                <div>
+                  <p class="font-medium text-gray-800">Bug Report</p>
+                  <p class="text-gray-600 text-sm mb-2">
+                    Submitted on February 15, 2025
+                  </p>
+                </div>
+                <div class="flex text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+              </div>
+              <p class="text-gray-700">
+                Sometimes notifications don't appear properly on Android
+                devices.
+              </p>
+              <div class="mt-2 text-sm">
+                <span
+                  class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"
+                >
+                  Resolved
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="modal-overlay" id="videoModal">
-        <div class="modal-content">
-            <div class="close-button" id="closeButton"></div>
-            <div class="video-container">
-                <!-- Replace VIDEO_ID with the actual YouTube video ID -->
-                <iframe id="videoPlayer" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <footer class="bg-gradient-to-r from-black to-[#003a6c] text-white py-8 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-bold mb-2">Taste'n Talk</h2>
+                    <p class="text-gray-300">Connect with food lovers worldwide</p>
+                </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-white hover:text-[#ff4d4d] transition-colors">
+                    <i class="fab fa-facebook-f text-xl"></i>
+                </a>
+                <a href="#" class="text-white hover:text-[#ff4d4d] transition-colors">
+                    <i class="fab fa-twitter text-xl"></i>
+                </a>
+                <a href="#" class="text-white hover:text-[#ff4d4d] transition-colors">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="#" class="text-white hover:text-[#ff4d4d] transition-colors">
+                    <i class="fab fa-youtube text-xl"></i>
+                </a>
+                <a href="#" class="text-white hover:text-[#ff4d4d] transition-colors">
+                    <i class="fab fa-pinterest text-xl"></i>
+                </a>
             </div>
         </div>
-    </div>
-
+        <div class="border-t border-white/20 mt-8 pt-8 text-center text-gray-300 text-sm">
+            <p>&copy; 2025 Taste'n Talk. All rights reserved.</p>
+        </div>
+        </div>
+    </footer>
     <script>
-        // YouTube video ID - replace with your actual video ID
-        const videoId = 'dQw4w9WgXcQ'; // Example: Rick Astley - Never Gonna Give You Up
-        
-        const videoCard = document.getElementById('videoCard');
-        const videoModal = document.getElementById('videoModal');
-        const closeButton = document.getElementById('closeButton');
-        const videoPlayer = document.getElementById('videoPlayer');
-        
-        // Open modal and play video when card is clicked
-        videoCard.addEventListener('click', function() {
-            // Set video source with autoplay parameter
-            videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-            videoModal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling behind modal
+      const stars = document.querySelectorAll("[data-rating]");
+      const ratingText = document.getElementById("rating-text");
+      let currentRating = 0;
+
+      stars.forEach((star) => {
+        star.addEventListener("click", function () {
+          const rating = parseInt(this.getAttribute("data-rating"));
+          currentRating = rating;
+          updateStars(rating);
+          switch (rating) {
+            case 1:
+              ratingText.textContent = "Very Dissatisfied";
+              break;
+            case 2:
+              ratingText.textContent = "Dissatisfied";
+              break;
+            case 3:
+              ratingText.textContent = "Neutral";
+              break;
+            case 4:
+              ratingText.textContent = "Satisfied";
+              break;
+            case 5:
+              ratingText.textContent = "Very Satisfied";
+              break;
+          }
         });
-        
-        // Close modal and stop video when close button is clicked
-        closeButton.addEventListener('click', function(e) {
-            e.stopPropagation(); // Prevent event from bubbling to parent elements
-            closeModal();
+
+        star.addEventListener("mouseover", function () {
+          const rating = parseInt(this.getAttribute("data-rating"));
+          updateStars(rating);
         });
-        
-        // Close modal when clicking outside the video
-        videoModal.addEventListener('click', function(e) {
-            if (e.target === videoModal) {
-                closeModal();
-            }
+
+        star.addEventListener("mouseout", function () {
+          updateStars(currentRating);
         });
-        
-        // Close modal when ESC key is pressed
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && videoModal.classList.contains('active')) {
-                closeModal();
-            }
+      });
+
+      function updateStars(rating) {
+        stars.forEach((star) => {
+          const starRating = parseInt(star.getAttribute("data-rating"));
+          if (starRating <= rating) {
+            star.classList.remove("far");
+            star.classList.add("fas");
+          } else {
+            star.classList.remove("fas");
+            star.classList.add("far");
+          }
         });
-        
-        function closeModal() {
-            videoModal.classList.remove('active');
-            videoPlayer.src = ''; // Stop the video
-            document.body.style.overflow = ''; // Restore scrolling
-        }
+      }
+      const submitFeedbackBtn = document.querySelector("#feedback button");
+      if (submitFeedbackBtn) {
+        submitFeedbackBtn.addEventListener("click", function () {
+          const feedbackType = document.getElementById("feedback-type").value;
+          const feedbackMessage =
+            document.getElementById("feedback-message").value;
+          const isAnonymous =
+            document.getElementById("anonymous-feedback").checked;
+
+          if (!feedbackMessage) {
+            alert("Please enter your feedback message");
+            return;
+          }
+
+          if (currentRating === 0) {
+            alert("Please select a rating");
+            return;
+          }
+          alert("Thank you for your feedback!");
+          document.getElementById("feedback-message").value = "";
+          currentRating = 0;
+          updateStars(0);
+          ratingText.textContent = "Select a rating";
+        });
+      }
     </script>
-</body>
+
+   
+  </body>
 </html>

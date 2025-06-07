@@ -3,7 +3,7 @@ import React from "react";
 const Courses = () => {
   return (
     <div>
-      <div className="bg-[#002140] min-h-screen text-gray-800">
+      <div className="bg-[#022c43] min-h-screen text-gray-800">
         <main className="container ml-[250px] -mt-[720px] py-14 px-4 md:px-6 w-fit ">
           <section className="bg-gradient-to-tr from-black/40 via-black/25 to-transparent rounded-2xl shadow-xl overflow-hidden mb-12 transform hover:scale-[1.02] transition-transform duration-300">
             <div className="flex flex-col md:flex-row items-center">
@@ -232,7 +232,7 @@ const Courses = () => {
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl hover:bg-gradient-to-tr hover:from-black hover:via-[#002140] hover:to-[#002140c1] hover:text-white transition-all duration-300 group">
-                <div className="bg-[#002140] bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="bg-[#022c43] bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <i className="fas fa-bread-slice text-3xl text-[#002140] group-hover:text-white"></i>
                 </div>
                 <h3 className="font-bold text-lg mb-2">Baking</h3>
@@ -241,7 +241,7 @@ const Courses = () => {
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl hover:bg-gradient-to-tr hover:from-black hover:via-[#002140] hover:to-[#002140c1] hover:text-white transition-all duration-300 group">
-                <div className="bg-[#002140] bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="bg-[#022c43] bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <i className="fas fa-pizza-slice text-3xl text-[#002140] group-hover:text-white"></i>
                 </div>
                 <h3 className="font-bold text-lg mb-2">Italian</h3>
@@ -250,7 +250,7 @@ const Courses = () => {
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl hover:bg-gradient-to-tr hover:from-black hover:via-[#002140] hover:to-[#002140c1] hover:text-white transition-all duration-300 group">
-                <div className="bg-[#002140] bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="bg-[#022c43] bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <i className="fas fa-seedling text-3xl text-[#002140] group-hover:text-white"></i>
                 </div>
                 <h3 className="font-bold text-lg mb-2">Vegan</h3>
@@ -259,7 +259,7 @@ const Courses = () => {
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl hover:bg-gradient-to-tr hover:from-black hover:via-[#002140] hover:to-[#002140c1] hover:text-white transition-all duration-300 group">
-                <div className="bg-[#002140] bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="bg-[#022c43] bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <i className="fas fa-utensils text-3xl text-[#002140] group-hover:text-white"></i>
                 </div>
                 <h3 className="font-bold text-lg mb-2">Asian</h3>

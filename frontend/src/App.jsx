@@ -21,6 +21,7 @@ import Help from './pages/Help/Help';
 import Report from './pages/Report/Report';
 import Blocked from './pages/Blocked/Blocked';
 import HomePage from './components/HomePage/HomePage';
+import Feedback from './pages/Feedback/Feedback';
 
 // Login/Signup Pages (no Navbar)
 import Login from './components/Login/Login';
@@ -29,6 +30,7 @@ import LoginNew from './pages/LoginNew/LoginNew';
 
 // Layout with Navbar
 import Layout from './components/Layout/Layout';
+import Saved from './pages/Saved/Saved';
 
 const router = createBrowserRouter([
   {
@@ -45,8 +47,10 @@ const router = createBrowserRouter([
       { path: '/courses', element: <Courses /> },
       { path: '/shopping', element: <Shopping /> },
       { path: '/footer', element: <Footer /> },
+      { path: '/saved', element: <Saved /> },
       { path: '/myprofile', element: <Profile /> },
       { path: '/setting', element: <Setting /> },
+      { path: '/feedback', element: <Feedback /> },
       { path: '/help', element: <Help /> },
       { path: '/report', element: <Report /> },
       { path: '/blocked', element: <Blocked /> },

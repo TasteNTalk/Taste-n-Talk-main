@@ -2,8 +2,8 @@ import React from "react";
 
 const Blogs = () => {
   return (
-    <div className="bg-[#002140]">
-      <div className="bg-[#002140] text-gray-800 font-sans">
+    <div className="bg-[#022c43]">
+      <div className="bg-[#022c43] text-gray-800 font-sans">
         <div className="container ml-[60px] -mt-[720px] py-12 px-4 md:px-6 w-auto ">
           <div className="w-full">
             <div className="mb-10 animate-fade-up">

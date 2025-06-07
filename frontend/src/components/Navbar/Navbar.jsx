@@ -35,7 +35,7 @@ const Navbar = ({ children }) => {
       <NavLink
         to={to}
         className={`flex items-center gap-3 p-2 rounded-lg transition-all duration-300 group hover:shadow-md relative ${
-          sidebarExpanded ? "" : "justify-center"
+          sidebarExpanded ? "" : "justify-center "
         } ${
           isActive 
             ? "bg-white/25 shadow-lg" 
@@ -392,7 +392,7 @@ const Navbar = ({ children }) => {
         {children}
       </main>
     </div>
-  );
+  );  
 };
 
 export default Navbar;

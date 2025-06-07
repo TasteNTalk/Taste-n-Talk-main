@@ -3,7 +3,7 @@ import React from "react";
 const Inbox = () => {
   return (
     <div>
-      <div className="bg-[#002140] container ml-[250px] -mt-[720px] pt-12 px-4 md:px-6 w-auto">
+      <div className="bg-[#022c43] container ml-[250px] -mt-[720px] pt-12 px-4 md:px-6 w-auto">
         <div className="max-w-7xl mx-auto rounded-2xl overflow-hidden shadow-2xl backdrop-blur-sm bg-white">
           <div className="flex flex-col md:flex-row h-[80vh]">
             <div className="w-full md:w-1/3 bg-gray-50 dark:bg-gray-800 border-r border-gray-200 bg-gradient-to-r from-black via-[#002140] to-[#003a6d]">

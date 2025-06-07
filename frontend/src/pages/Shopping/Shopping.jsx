@@ -2,11 +2,11 @@ import React from "react";
 
 const Shopping = () => {
   return (
-    <div className="bg-[#002140]">
-      <div className="bg-[#002140] min-h-screen font-serif container ml-[60px] -mt-[720px] py-6 px-4 md:px-6 w-fit ">
+    <div className="bg-[#022c43]">
+      <div className="bg-[#022c43] min-h-screen font-serif container ml-[60px] -mt-[720px] py-6 px-4 md:px-6 w-fit ">
         <div className="container mx-auto px-4 py-8">
-          <div className="bg-[#002140] rounded-lg mb-8 overflow-hidden text-white">
-            <div className="flex flex-wrap justify-between bg-gradient-to-r from-black/40 via-black/25 to-transparent">
+          <div className="bg-[#022c43] rounded-lg mb-8 overflow-hidden text-white">
+            <div className="flex flex-wrap justify-between bg-gradient-to-r from-black/40 via-black/25 to-transparent py-4">
               <div className="flex">
                 <div className="cursor-pointer py-3 px-6 font-semibold hover:bg-white hover:text-[#ff4d4d] active:bg-white active:text-[#ff4d4d] flex items-center gap-2 transition">
                   <i className="fas fa-th-large"></i> ALL INGREDIENTS
@@ -28,7 +28,7 @@ const Shopping = () => {
                 <input
                   type="text"
                   placeholder="Search for ingredients..."
-                  className="w-full py-2 px-4 rounded-full text-[#002140] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#002140] focus:border-transparent"
+                  className="w-full py-2 px-4 rounded-full text-white border-2 border-white focus:outline-none focus:ring-2 focus:ring-[#002140] focus:scale-[103%]"
                 />
                 <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-[#002140]">
                   <i className="fas fa-search"></i>
@@ -98,7 +98,7 @@ const Shopping = () => {
               <h2 className="text-3xl font-bold text-white">
                 Shop By Category
               </h2>
-              <div className="w-20 h-1 bg-[#002140] mx-auto mt-3"></div>
+              <div className="w-20 h-1 bg-[#022c43] mx-auto mt-3"></div>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -110,7 +110,7 @@ const Shopping = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
                   />
                 </div>
-                <div className="p-4 text-center bg-[#002140]-dark text-[#002140] font-semibold">
+                <div className="p-4 text-center bg-[#022c43]-dark text-[#002140] font-semibold">
                   FRESH PRODUCE
                 </div>
               </div>
@@ -123,7 +123,7 @@ const Shopping = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
                   />
                 </div>
-                <div className="p-4 text-center bg-[#002140]-dark text-[#002140] font-semibold">
+                <div className="p-4 text-center bg-[#022c43]-dark text-[#002140] font-semibold">
                   SPICES & HERBS
                 </div>
               </div>
@@ -136,7 +136,7 @@ const Shopping = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
                   />
                 </div>
-                <div className="p-4 text-center bg-[#002140]-dark text-[#002140] font-semibold">
+                <div className="p-4 text-center bg-[#022c43]-dark text-[#002140] font-semibold">
                   OILS & VINEGARS
                 </div>
               </div>
@@ -149,7 +149,7 @@ const Shopping = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
                   />
                 </div>
-                <div className="p-4 text-center bg-[#002140]-dark text-[#002140] font-semibold">
+                <div className="p-4 text-center bg-[#022c43]-dark text-[#002140] font-semibold">
                   GRAINS & LEGUMES
                 </div>
               </div>
@@ -162,7 +162,7 @@ const Shopping = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
                   />
                 </div>
-                <div className="p-4 text-center bg-[#002140]-dark text-[#002140] font-semibold">
+                <div className="p-4 text-center bg-[#022c43]-dark text-[#002140] font-semibold">
                   SPECIALTY ITEMS
                 </div>
               </div>
@@ -174,7 +174,7 @@ const Shopping = () => {
               <h2 className="text-3xl font-bold text-white">
                 Featured Ingredients
               </h2>
-              <div className="w-20 h-1 bg-[#002140] mx-auto mt-3"></div>
+              <div className="w-20 h-1 bg-[#022c43] mx-auto mt-3"></div>
               <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
                 Explore our handpicked selection of the finest cooking
                 ingredients that will elevate your culinary creations.
@@ -187,7 +187,7 @@ const Shopping = () => {
                   <span className="absolute top-4 left-4 bg-secondary text-white text-xs font-bold px-2 py-1 rounded z-10">
                     SEASONAL
                   </span>
-                  <span className="absolute top-4 right-4 bg-[#002140] text-white text-xs font-bold px-2 py-1 rounded z-10">
+                  <span className="absolute top-4 right-4 bg-[#022c43] text-white text-xs font-bold px-2 py-1 rounded z-10">
                     -15%
                   </span>
                   <div className="h-56 overflow-hidden">
@@ -287,7 +287,7 @@ const Shopping = () => {
             <div className="text-center mt-8">
               <a
                 href="#"
-                className="inline-block border-2 border-[#002140] text-[#002140] hover:bg-[#002140] hover:text-white transition px-6 py-3 rounded-full font-bold"
+                className="inline-block border-2 border-[#002140] text-[#002140] hover:bg-[#022c43] hover:text-white transition px-6 py-3 rounded-full font-bold"
               >
                 View All Ingredients
               </a>

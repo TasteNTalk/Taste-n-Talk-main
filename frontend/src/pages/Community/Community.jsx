@@ -2,7 +2,7 @@ import React from "react";
 
 const Community = () => {
   return (
-    <div className="bg-[#002140]  min-h-screen ">
+    <div className="bg-[#022c43]  min-h-screen ">
       <div className="ml-[250px] -mt-[720px] py-12 px-4 md:px-6 w-auto">
         <div className="bg-gradient-to-r from-black/40 via-black/25 to-transparent rounded-2xl overflow-hidden shadow-xl mb-8">
           <div className="p-6 md:p-8 lg:p-10 flex flex-col md:flex-row items-center">
@@ -73,7 +73,7 @@ const Community = () => {
 
         <div className="flex justify-between gap-5 mx-5 mb-8 flex-wrap md:flex-nowrap">
           <div className="flex-1 bg-gradient-to-r from-black/40 via-black/25 to-transparent rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition duration-300 flex flex-col items-center cursor-pointer group scale-110">
-            <div className="w-16 h-16 bg-[#002140] bg-opacity-10 rounded-full flex items-center justify-center mb-4 sclae-110 transition-transform duration-300">
+            <div className="w-16 h-16 bg-[#022c43] bg-opacity-10 rounded-full flex items-center justify-center mb-4 sclae-110 transition-transform duration-300">
               <i className="fas fa-users text-2xl text-[#FF6B35]"></i>
             </div>
             <h3 className="font-bold text-lg text-white mb-2 group-hover:text-[#FF6B35] transition-colors">
@@ -84,13 +84,13 @@ const Community = () => {
               passions
             </p>
             <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-              <button className="px-4 py-2 bg-[#002140] text-white rounded-full text-sm hover:bg-[#002140]-light transition-colors">
+              <button className="px-4 py-2 bg-[#022c43] text-white rounded-full text-sm hover:bg-[#022c43]-light transition-colors">
                 Explore Groups
               </button>
             </div>
           </div>
           <div className="flex-1 bg-gradient-to-r from-black/40 via-black/25 to-transparent rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition duration-300 flex flex-col items-center cursor-pointer group scale-110">
-            <div className="w-16 h-16 bg-[#002140] bg-opacity-10 rounded-full flex items-center justify-center mb-4 sclae-110 transition-transform duration-300">
+            <div className="w-16 h-16 bg-[#022c43] bg-opacity-10 rounded-full flex items-center justify-center mb-4 sclae-110 transition-transform duration-300">
               <i className="fas fa-calendar-alt text-2xl text-[#FF6B35]"></i>
             </div>
             <h3 className="font-bold text-lg text-white mb-2 group-hover:text-[#FF6B35] transition-colors">
@@ -100,13 +100,13 @@ const Community = () => {
               Discover local cooking meetups, workshops, and food festivals
             </p>
             <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-              <button className="px-4 py-2 bg-[#002140] text-white rounded-full text-sm hover:bg-[#002140]-light transition-colors">
+              <button className="px-4 py-2 bg-[#022c43] text-white rounded-full text-sm hover:bg-[#022c43]-light transition-colors">
                 Find Events
               </button>
             </div>
           </div>
           <div className="flex-1 bg-gradient-to-r from-black/40 via-black/25 to-transparent rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition duration-300 flex flex-col items-center cursor-pointer group scale-110">
-            <div className="w-16 h-16 bg-[#002140] bg-opacity-10 rounded-full flex items-center justify-center mb-4 sclae-110 transition-transform duration-300">
+            <div className="w-16 h-16 bg-[#022c43] bg-opacity-10 rounded-full flex items-center justify-center mb-4 sclae-110 transition-transform duration-300">
               <i className="fas fa-book text-2xl text-[#FF6B35]"></i>
             </div>
             <h3 className="font-bold text-lg text-white mb-2 group-hover:text-[#FF6B35] transition-colors">
@@ -116,7 +116,7 @@ const Community = () => {
               Share & discover new recipes from creative home chefs worldwide
             </p>
             <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-              <button className="px-4 py-2 bg-[#002140] text-white rounded-full text-sm hover:bg-[#002140]-light transition-colors">
+              <button className="px-4 py-2 bg-[#022c43] text-white rounded-full text-sm hover:bg-[#022c43]-light transition-colors">
                 Browse Recipes
               </button>
             </div>
@@ -146,7 +146,7 @@ const Community = () => {
 
           <div className="mb-8 overflow-x-auto scrollbar-hide pb-2">
             <div className="flex gap-3">
-              <button className="bg-[#002140] text-white px-5 py-2.5 rounded-full text-sm whitespace-nowrap font-medium shadow-md flex items-center gap-2">
+              <button className="bg-[#022c43] text-white px-5 py-2.5 rounded-full text-sm whitespace-nowrap font-medium shadow-md flex items-center gap-2">
                 <i className="fas fa-th-large"></i> All Groups
               </button>
               <button className="bg-gray-100 text-gray-700 px-5 py-2.5 rounded-full text-sm whitespace-nowrap font-medium hover:bg-[#FF6B35] hover:text-white transition-colors flex items-center gap-2">
@@ -227,7 +227,7 @@ const Community = () => {
                       alt="Member"
                       className="w-8 h-8 rounded-full border-2 border-white"
                     />
-                    <div className="w-8 h-8 rounded-full bg-[#002140]-light text-white border-2 border-white flex items-center justify-center text-xs">
+                    <div className="w-8 h-8 rounded-full bg-[#022c43]-light text-white border-2 border-white flex items-center justify-center text-xs">
                       +9k
                     </div>
                   </div>
@@ -303,7 +303,7 @@ const Community = () => {
                       alt="Member"
                       className="w-8 h-8 rounded-full border-2 border-white"
                     />
-                    <div className="w-8 h-8 rounded-full bg-[#002140]-light text-white border-2 border-white flex items-center justify-center text-xs">
+                    <div className="w-8 h-8 rounded-full bg-[#022c43]-light text-white border-2 border-white flex items-center justify-center text-xs">
                       +5k
                     </div>
                   </div>
@@ -374,7 +374,7 @@ const Community = () => {
                       alt="Member"
                       className="w-8 h-8 rounded-full border-2 border-white"
                     />
-                    <div className="w-8 h-8 rounded-full bg-[#002140]-light text-white border-2 border-white flex items-center justify-center text-xs">
+                    <div className="w-8 h-8 rounded-full bg-[#022c43]-light text-white border-2 border-white flex items-center justify-center text-xs">
                       +3k
                     </div>
                   </div>
