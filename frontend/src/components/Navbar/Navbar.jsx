@@ -384,13 +384,6 @@ const Navbar = ({ children }) => {
           )}
         </nav>
       </aside>
-
-      {/* Main Content Area - Adjusts based on sidebar width */}
-      <main className={`transition-all duration-500 mt-[87px] min-h-screen bg-[#022c43]/80 p-[20px] ${
-        sidebarExpanded ? "ml-[210px]" : "ml-[70px]"
-      }`}>
-        {children}
-      </main>
     </div>
   );  
 };

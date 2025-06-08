@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const HomePage = () => {
+const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(3);
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
@@ -165,7 +165,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className={`bg-[#022c43] flex container ${sidebarExpanded ? 'ml-[200px]' : 'ml-[60px]'} -mt-[720px] py-4 px-4 md:px-6 w-fit`}>
+    <div className={`bg-[#022c43] flex container ${sidebarExpanded ? 'ml-[200px]' : 'ml-[60px]'} -mt-[60px] py-4 px-4 md:px-6 w-fit`}>
       {/* Toggle Button */}
       {/* <button 
         onClick={toggleSidebar}
@@ -181,45 +181,7 @@ const HomePage = () => {
           {/* Top Color Stripe */}
           <div className="absolute top-0 left-0 w-full h-5 bg-gradient-to-r from-[#ff4d4d] via-[#6a5acd] to-[#0099ff]"></div>
           
-          {/* Navigation Items Wrapper */}
-          <div className="flex flex-wrap justify-between gap-2 p-4 md:gap-0" id="navItems">
-            {/* Navigation Item */}
-            <div className="nav-item group flex-1 flex flex-col items-center text-center gap-2 p-4 rounded-lg cursor-pointer relative overflow-hidden transition-all duration-300 hover:bg-[#e2e4d6] hover:-translate-y-1 hover:shadow-md">
-              <div className="icon text-2xl text-gray-700 transition-transform duration-300 group-hover:scale-110">🏠</div>
-              <div className="label text-sm font-medium text-gray-800 group-hover:text-blue-600 transition-colors">Home</div>
-              <div className="indicator absolute bottom-0 left-1/2 w-0 h-1 bg-gradient-to-r from-red-500 to-blue-900 transition-all duration-300 transform -translate-x-1/2 group-hover:w-4/5"></div>
-            </div>
-
-            <div className="nav-item group flex-1 flex flex-col items-center text-center gap-2 p-4 rounded-lg cursor-pointer relative overflow-hidden transition-all duration-300 hover:bg-[#e2e4d6] hover:-translate-y-1 hover:shadow-md">
-              <div className="icon text-2xl text-gray-700 transition-transform duration-300 group-hover:scale-110">🔥</div>
-              <div className="label text-sm font-medium text-gray-800 group-hover:text-blue-600 transition-colors">Trending</div>
-              <div className="indicator absolute bottom-0 left-1/2 w-0 h-1 bg-gradient-to-r from-red-500 to-blue-900 transition-all duration-300 transform -translate-x-1/2 group-hover:w-4/5"></div>
-            </div>
-
-            <div className="nav-item group flex-1 flex flex-col items-center text-center gap-2 p-4 rounded-lg cursor-pointer relative overflow-hidden transition-all duration-300 hover:bg-[#e2e4d6] hover:-translate-y-1 hover:shadow-md">
-              <div className="icon text-2xl text-gray-700 transition-transform duration-300 group-hover:scale-110">📽</div>
-              <div className="label text-sm font-medium text-gray-800 group-hover:text-blue-600 transition-colors">Repi</div>
-              <div className="indicator absolute bottom-0 left-1/2 w-0 h-1 bg-gradient-to-r from-red-500 to-blue-900 transition-all duration-300 transform -translate-x-1/2 group-hover:w-4/5"></div>
-            </div>
-
-            <div className="nav-item group flex-1 flex flex-col items-center text-center gap-2 p-4 rounded-lg cursor-pointer relative overflow-hidden transition-all duration-300 hover:bg-[#e2e4d6] hover:-translate-y-1 hover:shadow-md">
-              <div className="icon text-2xl text-gray-700 transition-transform duration-300 group-hover:scale-110">📹</div>
-              <div className="label text-sm font-medium text-gray-800 group-hover:text-blue-600 transition-colors">Your Content</div>
-              <div className="indicator absolute bottom-0 left-1/2 w-0 h-1 bg-gradient-to-r from-red-500 to-blue-900 transition-all duration-300 transform -translate-x-1/2 group-hover:w-4/5"></div>
-            </div>
-
-            <div className="nav-item group flex-1 flex flex-col items-center text-center gap-2 p-4 rounded-lg cursor-pointer relative overflow-hidden transition-all duration-300 hover:bg-[#e2e4d6] hover:-translate-y-1 hover:shadow-md">
-              <div className="icon text-2xl text-gray-700 transition-transform duration-300 group-hover:scale-110">🎵</div>
-              <div className="label text-sm font-medium text-gray-800 group-hover:text-blue-600 transition-colors">Playlists</div>
-              <div className="indicator absolute bottom-0 left-1/2 w-0 h-1 bg-gradient-to-r from-red-500 to-blue-900 transition-all duration-300 transform -translate-x-1/2 group-hover:w-4/5"></div>
-            </div>
-
-            <div className="nav-item group flex-1 flex flex-col items-center text-center gap-2 p-4 rounded-lg cursor-pointer relative overflow-hidden transition-all duration-300 hover:bg-[#e2e4d6] hover:-translate-y-1 hover:shadow-md">
-              <div className="icon text-2xl text-gray-700 transition-transform duration-300 group-hover:scale-110">🕒</div>
-              <div className="label text-sm font-medium text-gray-800 group-hover:text-blue-600 transition-colors">History</div>
-              <div className="indicator absolute bottom-0 left-1/2 w-0 h-1 bg-gradient-to-r from-red-500 to-blue-900 transition-all duration-300 transform -translate-x-1/2 group-hover:w-4/5"></div>
-            </div>
-          </div>
+          
         </div>
 
         {/* Page Content */}
@@ -357,4 +319,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Home;
