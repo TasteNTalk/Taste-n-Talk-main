@@ -7,18 +7,18 @@ const HomeHeader = () => {
   return (
     <nav className="w-[94%] mx-auto -mt-[595px] bg-gradient-to-br from-[#e2e4d6] to-[#c4c2c2] rounded-xl shadow-lg overflow-hidden relative ml-[80px]">
       {/* Top Gradient Stripe */}
-      <div className="absolute top-0 left-0 w-full h-5 bg-gradient-to-r from-[#ff4d4d] via-[#6a5acd] to-[#0099ff]"></div>
+      <div className="absolute top-0 left-0 w-full h-4 bg-gradient-to-r from-[#ff4d4d] via-[#6a5acd] to-[#0099ff]"></div>
 
       {/* Navigation Items */}
       <div
-        className="flex flex-wrap justify-between gap-2 p-4 md:gap-0"
+        className="flex flex-wrap justify-between gap-2 p-3 md:gap-0"
         id="navItems"
       >
         <NavLink
           to="/home"
           end
           className={({ isActive }) =>
-            `nav-item group flex-1 flex flex-col items-center text-center gap-2 p-4 rounded-lg cursor-pointer relative overflow-hidden transition-all duration-300
+            `nav-item group flex-1 flex flex-col items-center text-center gap-2 p-3 rounded-lg cursor-pointer relative overflow-hidden transition-all duration-300
     ${
       isActive
         ? "bg-[#e2e4d6] -translate-y-1 shadow-md"
@@ -56,7 +56,7 @@ const HomeHeader = () => {
         <NavLink
           to="/home/trending"
           className={({ isActive }) =>
-            `nav-item group flex-1 flex flex-col items-center text-center gap-2 p-4 rounded-lg cursor-pointer relative overflow-hidden transition-all duration-300
+            `nav-item group flex-1 flex flex-col items-center text-center gap-2 p-3 rounded-lg cursor-pointer relative overflow-hidden transition-all duration-300
     ${
       isActive
         ? "bg-[#e2e4d6] -translate-y-1 shadow-md"
@@ -94,7 +94,7 @@ const HomeHeader = () => {
         <NavLink
           to="/home/repi"
           className={({ isActive }) =>
-            `nav-item group flex-1 flex flex-col items-center text-center gap-2 p-4 rounded-lg cursor-pointer relative overflow-hidden transition-all duration-300
+            `nav-item group flex-1 flex flex-col items-center text-center gap-2 p-3 rounded-lg cursor-pointer relative overflow-hidden transition-all duration-300
     ${
       isActive
         ? "bg-[#e2e4d6] -translate-y-1 shadow-md"
@@ -132,7 +132,7 @@ const HomeHeader = () => {
         <NavLink
           to="/home/playlist"
           className={({ isActive }) =>
-            `nav-item group flex-1 flex flex-col items-center text-center gap-2 p-4 rounded-lg cursor-pointer relative overflow-hidden transition-all duration-300
+            `nav-item group flex-1 flex flex-col items-center text-center gap-2 p-3 rounded-lg cursor-pointer relative overflow-hidden transition-all duration-300
     ${
       isActive
         ? "bg-[#e2e4d6] -translate-y-1 shadow-md"
@@ -170,7 +170,7 @@ const HomeHeader = () => {
         <NavLink
           to="/home/history"
           className={({ isActive }) =>
-            `nav-item group flex-1 flex flex-col items-center text-center gap-2 p-4 rounded-lg cursor-pointer relative overflow-hidden transition-all duration-300
+            `nav-item group flex-1 flex flex-col items-center text-center gap-2 p-3 rounded-lg cursor-pointer relative overflow-hidden transition-all duration-300
     ${
       isActive
         ? "bg-[#e2e4d6] -translate-y-1 shadow-md"
