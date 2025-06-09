@@ -2,11 +2,11 @@ import React from "react";
 
 const Repi = () => {
   return (
-    <div class="bg-primary min-h-screen text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="bg-[#022c43] min-h-screen text-white">
+      <div class="w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <header class="flex justify-between items-center mb-12">
           <div class="flex items-center gap-3">
-            <h1 class="text-3xl font-bold bg-gradient-to-r from-accent to-amber-400 bg-clip-text text-transparent">
+            <h1 class="text-3xl font-bold bg-orange-500 bg-clip-text text-transparent">
               <i class="fas fa-fire text-accent"></i> Repi
             </h1>
           </div>

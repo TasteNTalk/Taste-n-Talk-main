@@ -2,7 +2,7 @@ import React from "react";
 
 const Trending = () => {
   return (
-    <div class="bg-gradient-to-br from-[#002140] to-[#004a8f] min-h-screen font-serif text-[#e2e4d6] m-0 p-0 box-border">
+    <div class="bg-[#022c43] min-h-screen font-serif text-[#e2e4d6] m-0 p-0 box-border ml-[70px] -mt-[60px]">
       <div class="ml-64 mt-24 p-5 w-[calc(100%-16rem)] md:ml-0 md:w-full md:mt-5">
         <div class="bg-trending-gradient rounded-2xl p-6 mt-5 shadow-2xl relative overflow-hidden text-white">
           <div class="absolute top-[-50%] left-[-50%] right-[-50%] bottom-[-50%] bg-shine-gradient rotate-[25deg] animate-shine"></div>

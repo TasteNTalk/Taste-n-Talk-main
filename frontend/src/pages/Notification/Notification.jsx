@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taste'n Talk - Notifications</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<div class="bg-[#002140] text-gray-800 font-sans">
+import React from 'react'
+
+const Notification = () => {
+  return (
+    <div class="bg-[#002140] text-gray-800 font-sans">
     <div class="container mx-auto px-4 md:px-6 py-12 max-w-7xl">
         <div class="w-full">
             <div class="mb-10 animate-fade-up">
@@ -225,7 +220,7 @@
         </div>
     </div>
 
-    <script>
+    {/* <script>
         document.addEventListener('DOMContentLoaded', function() {
             const tabs = document.querySelectorAll('.flex.overflow-x-auto button');
             
@@ -241,6 +236,9 @@
                 });
             });
         });
-    </script>
+    </script> */}
 </div>
-</html>
+  )
+}
+
+export default Notification

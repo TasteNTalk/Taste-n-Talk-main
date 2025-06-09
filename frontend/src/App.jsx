@@ -38,6 +38,8 @@ import LoginNew from './pages/LoginNew/LoginNew';
 
 // Layout with Navbar
 import Layout from './components/Layout/Layout';
+import Favorite from './pages/Favourite/Favorite';
+import Notification from './pages/Notification/Notification';
 
 const router = createBrowserRouter([
   {
@@ -65,6 +67,8 @@ const router = createBrowserRouter([
       { path: '/shopping', element: <Shopping /> },
       { path: '/footer', element: <Footer /> },
       { path: '/saved', element: <Saved /> },
+      { path: '/favorite', element: <Favorite /> },
+      { path: '/notification', element: <Notification /> },
       { path: '/myprofile', element: <Profile /> },
       { path: '/setting', element: <Setting /> },
       { path: '/feedback', element: <Feedback /> },
