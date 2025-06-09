@@ -2,8 +2,8 @@ import React from "react";
 
 const Playlist = () => {
   return (
-    <div class="bg-[#002140] min-h-screen p-6">
-      <div class="max-w-7xl mx-auto mt-8">
+    <div class="min-h-screen p-6">
+      <div class="max-w-7xl -mt-6 ml-28">
         <div class="relative overflow-hidden bg-gradient-to-br from-[#1e76c846] via-[#002140] to-[#0b3052] rounded-2xl p-6 shadow-2xl border-t-4 border-gradient">
           <div class="flex justify-between items-center mb-6">
             <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center">
@@ -15,7 +15,7 @@ const Playlist = () => {
             </button>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-            <div class="col-span-1 sm:col-span-2 flex flex-col md:flex-row bg-gradient-to-br from-[#002140] via-[#6a5acd]/25 to-purple-800/5 rounded-xl overflow-hidden shadow-xl transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
+            <div class="col-span-1 sm:col-span-2 flex flex-col md:flex-row bg-gradient-to-br from-transparent via-[#002140]/25 to-transparent rounded-xl overflow-hidden shadow-lg shadow-black transition duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-black">
               <img
                 src="/api/placeholder/400/400"
                 alt="Gourmet Desserts"
@@ -53,12 +53,12 @@ const Playlist = () => {
               </div>
             </div>
 
-            <div class="relative group rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer bg-gradient-to-r from-blue-500/2 to-purple-500/5">
+            <div class="relative group rounded-xl overflow-hidden transition duration-300 hover:-translate-y-2 shadow-lg shadow-black hover:shadow-xl hover:shadow-black cursor-pointer bg-gradient-to-r from-transparent via-[#002140] to-transparent">
               <span class="absolute top-2 right-2 bg-white text-[#ff4d4d] text-xs font-semibold px-3 py-1 rounded-full z-10 shadow-md hover:bg-[#ff4d4d] hover:text-white">
                 New
               </span>
-              <div class="absolute inset-0  flex items-center justify-center hover:bg-gradient-to-r from-[#002140]/50 to-blue-500/20 hover:opacity-100 opacity-0 transition-opacity z-10">
-                <div class="w-16 h-16 bg-gradient-to-br from-[#002140] via-[#6a5acd]/25 to-purple-800/5 rounded-full flex items-center justify-center text-white text-3xl backdrop-blur-sm border-2 border-white/50 shadow-lg transition group-hover:scale-110">
+              <div class="absolute inset-0  flex items-center justify-center hover:bg-gradient-to-r from-[#002140]/50 via-transparent to-[#002140]/20 hover:opacity-100 opacity-0 transition-opacity z-10">
+                <div class="w-16 h-16 bg-gradient-to-br from-transparent via-[#002140]/25 to-transparent rounded-full flex items-center justify-center text-white text-3xl backdrop-blur-sm border-2 border-white/50 shadow-lg transition group-hover:scale-110">
                   <i class="fas fa-play"></i>
                 </div>
               </div>
@@ -67,7 +67,7 @@ const Playlist = () => {
                 alt="Healthy Breakfast Ideas"
                 class="w-full aspect-square object-cover transition duration-500 group-hover:scale-110"
               />
-              <div class="p-4 bg-gradient-to-br from-[#002140] via-[#6a5acd]/15 to-purple-800/5">
+              <div class="p-4 bg-gradient-to-br from-transparent via-[#002140]/15 to-transparent">
                 <h3 class="text-lg font-bold text-white">
                   Healthy Breakfast Ideas
                 </h3>

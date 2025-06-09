@@ -2,8 +2,8 @@ import React from 'react'
 
 function Saved() {
   return (
-    <div class="pt-10 pb-12 px-4 md:px-8 max-w-7xl mx-auto">
-        <header class="bg-[#001529] shadow-lg z-50 w-full mb-4">
+    <div class="pt-10 pb-12 px-4 md:px-8 max-w-7xl ml-32 -mt-[620px]">
+        <header class="bg-[#001529] shadow-lg z-50 w-full mb-4 rounded-3xl">
            <div class="max-w-7xl mx-auto px-4 md:px-8">
                <div class="flex justify-between items-center h-16">
                    

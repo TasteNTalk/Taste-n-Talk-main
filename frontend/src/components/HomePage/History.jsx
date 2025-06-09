@@ -2,16 +2,16 @@ import React from "react";
 
 const History = () => {
   return (
-    <div class="font-poppins bg-[#002140] min-h-screen flex">
-      <div class="flex-1 bg-[#002140] rounded-tl-3xl rounded-bl-3xl overflow-hidden">
+    <div class="min-h-screen flex -mt-6">
+      <div class="flex-1 rounded-tl-3xl rounded-bl-3xl overflow-hidden">
         <div class="max-w-7xl mx-auto p-6">
           <header class="flex justify-between items-center mb-8">
             <div class="flex items-center justify-between w-full px-6">
-              <div class="relative group">
+              <div class="relative group bg-orange-50 rounded-2xl outline-none">
                 <input
                   type="text"
                   placeholder="Find amazing recipes..."
-                  class="pl-10 pr-4 py-3 rounded-xl border-2 border-gray-200 shadow-lg w-72 focus:ring-4 focus:ring-red-300 focus:border-red-400 transition-all duration-300 group-hover:shadow-xl"
+                  class="pl-10 pr-4 py-3 rounded-xl border-2 border-gray-200 shadow-lg w-72 focus:ring-4  focus:border-red-400 transition-all duration-300 group-hover:shadow-xl"
                 />
                 <i class="fas fa-search absolute left-3 top-3.5 text-red-400 group-hover:text-red-500 transition-colors"></i>
               </div>

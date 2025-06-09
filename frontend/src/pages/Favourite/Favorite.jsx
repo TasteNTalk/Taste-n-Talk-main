@@ -2,7 +2,7 @@ import React from "react";
 
 const Favorite = () => {
   return (
-    <div class="bg-[#002140] text-gray-800 font-sans">
+    <div class="text-gray-800 font-sans -mt-[630px] ml-6">
       <div class="container mx-auto px-4 md:px-6 py-12 max-w-7xl">
         <div class="mb-10 animate-fade-up">
           <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-4 relative inline-block after:content-[''] after:block after:w-1/3 after:h-1 after:bg-orange-400 after:mt-2">

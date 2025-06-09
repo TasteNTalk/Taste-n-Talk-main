@@ -3,21 +3,21 @@ import React from "react";
 const Repi = () => {
   return (
     <div class="bg-[#022c43] min-h-screen text-white">
-      <div class="w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 -mt-12">
         <header class="flex justify-between items-center mb-12">
           <div class="flex items-center gap-3">
             <h1 class="text-3xl font-bold bg-orange-500 bg-clip-text text-transparent">
-              <i class="fas fa-fire text-accent"></i> Repi
+              <i class="fas fa-fire text-red-500"></i> Repi
             </h1>
           </div>
-          <button class="bg-accent hover:bg-opacity-80 transition-all text-white font-bold py-3 px-6 rounded-full flex items-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-1 transform duration-300">
+          <button class="bg-gradient-to-r from-red-500 to-red-400 hover:bg-opacity-80 transition-all text-white font-bold py-3 px-6 rounded-full flex items-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-1 transform duration-300">
             <i class="fas fa-plus"></i> Create Repi
           </button>
         </header>
 
         <div class="mb-12">
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-2xl hover:shadow-accent/20 hover:-translate-y-2 transition-all duration-300 h-[500px] relative">
+            <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-2xl hover:shadow-red-500/20 hover:-translate-y-2 transition-all duration-300 h-[500px] relative">
               <img
                 src="/api/placeholder/400/500"
                 alt="Recipe Video"
@@ -44,15 +44,15 @@ const Repi = () => {
                 <div class="flex justify-between items-center">
                   <div class="flex gap-5">
                     <button class="flex flex-col items-center text-xs">
-                      <i class="fas fa-heart text-lg hover:text-accent hover:scale-125 transition-all"></i>
+                      <i class="fas fa-heart text-lg hover:text-red-500 hover:scale-125 transition-all"></i>
                       <span>8.2K</span>
                     </button>
                     <button class="flex flex-col items-center text-xs">
-                      <i class="fas fa-comment text-lg hover:text-accent hover:scale-125 transition-all"></i>
+                      <i class="fas fa-comment text-lg hover:text-red-500 hover:scale-125 transition-all"></i>
                       <span>310</span>
                     </button>
                     <button class="flex flex-col items-center text-xs">
-                      <i class="fas fa-share text-lg hover:text-accent hover:scale-125 transition-all"></i>
+                      <i class="fas fa-share text-lg hover:text-red-500 hover:scale-125 transition-all"></i>
                       <span>Share</span>
                     </button>
                   </div>
@@ -73,7 +73,7 @@ const Repi = () => {
         </div>
 
         <div class="flex justify-center">
-          <button class="bg-gradient-to-r from-accent to-red-400 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-accent/30 transition-all duration-300 hover:-translate-y-1 flex items-center gap-2">
+          <button class="bg-gradient-to-r from-red-500 to-red-400 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-red-500/30 transition-all duration-300 hover:-translate-y-1 flex items-center gap-2">
             Explore More Recipes <i class="fas fa-arrow-right"></i>
           </button>
         </div>

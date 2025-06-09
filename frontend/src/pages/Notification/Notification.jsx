@@ -2,7 +2,7 @@ import React from 'react'
 
 const Notification = () => {
   return (
-    <div class="bg-[#002140] text-gray-800 font-sans">
+    <div class="text-gray-800 font-sans -mt-[630px] ml-6">
     <div class="container mx-auto px-4 md:px-6 py-12 max-w-7xl">
         <div class="w-full">
             <div class="mb-10 animate-fade-up">

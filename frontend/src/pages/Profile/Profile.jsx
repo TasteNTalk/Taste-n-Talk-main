@@ -2,8 +2,8 @@ import React from "react";
 
 const Profile = () => {
   return (
-    <div className="bg-[#002140]">
-      <div className="bg-[#002140] font-sans container ml-[250px] -mt-[720px] py-12 px-4 md:px-6 w-fit ">
+    <div className="bg-[#022c43] -mt-[630px] ml-18">
+      <div className="bg-[#022c43] font-sans container mx-auto py-12 px-4 md:px-6 w-fit ">
         <div className="bg-gradient-to-r from-black to-[#003a6c] text-white py-12 rounded-2xl">
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
